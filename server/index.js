@@ -41,6 +41,12 @@ app.use(express.static(join(__dirname, '..', 'public')));
 // the request isn't for the home page
 app.use(
   auth({
+    issuerBaseURL: "https://YOUR_DOMAIN",
+    baseURL: "https://YOUR_APPLICATION_ROOT_URL",
+    clientID: "YOUR_CLIENT_ID",
+    appSession: {
+      secret: "LONG_RANDOM_STRING"
+    },
     required: req => req.originalUrl !== '/'
   })
 );
